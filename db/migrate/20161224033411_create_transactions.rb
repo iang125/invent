@@ -3,8 +3,8 @@ class CreateTransactions < ActiveRecord::Migration[5.0]
     create_table :transactions do |t|
       t.string :user_id
       t.string :equipment_id
-      t.datetime :RentedDatetime
-      t.datetime :ReturnedDatetime
+      t.datetime :rented_datetime
+      t.datetime :returned_datetime
       t.string :contract
 
       t.timestamps
