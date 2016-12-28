@@ -1,3 +1,4 @@
+<% if user_signed_in? == false %>
 <div class="row">
   <div class="col-md-6">
     <h2>Sign up</h2>
@@ -28,30 +29,36 @@
     <% end %>
   </div>
 </div>
-<%= form_for(@transaction) do |f| %>
+<% end %>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.select(:user_id, options_from_collection_for_select(User.all, :id, :email)) %>
+<% if user_signed_in? %>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for(@transaction) do |f| %>
+      <div class="field">
+        <%= f.label :user_id %>
+        <%= f.select(:user_id, options_from_collection_for_select(User.all, :id, :email)) %>
+      </div>
+      <div class="field">
+        <%= f.label :equipment_id %>
+        <%= f.select(:equipment_id, options_from_collection_for_select(Equipment.all, :id, :name)) %>
+      </div>
+      <% if(@transaction.rented_datetime == nil)%>
+        <%= hidden_field_tag 'transaction[rented_datetime]', Time.now  %>
+        <%#= f.hidden_field :rented_datetime, Time.now %>
+      <% end %>
+      <% if(@transaction.rented_datetime != nil)%>
+        <%#= f.hidden_field :returned_datetime, Time.now %>
+      <% end %>
+      <div class="field">
+        <%= f.label :contract %>
+        <%= f.text_field :contract %>
+      </div>
+        <%#= hidden_field_tag rented_datetime, Time.now  %>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :equipment_id %>
-    <%= f.select(:equipment_id, options_from_collection_for_select(Equipment.all, :id, :name)) %>
-  </div>
-  <%#= if(transaction.rented_datetime != nil)%>
-    <%= f.datetime_select :rented_datetime %>
-  <%#= end %>
-  <%#=(if transaction.rented_datetime != nil)%>
-    <%= f.datetime_select :returned_datetime %>
-  <%#= end %>
-
-  <div class="field">
-    <%= f.label :contract %>
-    <%= f.text_field :contract %>
-  </div>
-    <%#= hidden_field_tag rented_datetime, Time.now  %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
