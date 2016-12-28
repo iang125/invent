@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ink:</strong>
+  <%= @ink_exchange.ink_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ink_exchange.user_id %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @ink_exchange.room %>
+</p>
+
+<p>
+  <strong>Printer:</strong>
+  <%= @ink_exchange.printer %>
+</p>
+
+<p>
+  <strong>Exchange datetime:</strong>
+  <%= @ink_exchange.exchange_datetime %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @ink_exchange.quantity %>
+</p>
+
+<p>
+  <strong>Emptying:</strong>
+  <%= @ink_exchange.emptying %>
+</p>
+
+<%= link_to 'Edit', edit_ink_exchange_path(@ink_exchange) %> |
+<%= link_to 'Back', ink_exchanges_path %>

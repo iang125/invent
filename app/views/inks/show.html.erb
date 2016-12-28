@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ink.name %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @ink.model %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @ink.manufacturer %>
+</p>
+
+<%= link_to 'Edit', edit_ink_path(@ink) %> |
+<%= link_to 'Back', inks_path %>

@@ -1,0 +1,52 @@
+<%= form_for(ink_exchange) do |f| %>
+  <% if ink_exchange.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ink_exchange.errors.count, "error") %> prohibited this ink_exchange from being saved:</h2>
+
+      <ul>
+      <% ink_exchange.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ink_id %>
+    <%= f.select(:ink_id, options_from_collection_for_select(Ink.all, :id, :model)) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :room %>
+    <%= f.text_field :room %>
+  </div>
+
+  <div class="field">
+    <%= f.label :printer %>
+    <%= f.text_field :printer %>
+  </div>
+
+  <div class="field">
+    <%= f.label :exchange_datetime %>
+    <%= f.datetime_select :exchange_datetime %>
+  </div>
+
+  <div class="field">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :emptying %>
+    <%= f.check_box :emptying %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

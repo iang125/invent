@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ink Exchanges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ink</th>
+      <th>User</th>
+      <th>Room</th>
+      <th>Printer</th>
+      <th>Exchange datetime</th>
+      <th>Quantity</th>
+      <th>Emptying</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ink_exchanges.each do |ink_exchange| %>
+      <tr>
+        <td><%= ink_exchange.ink_id %></td>
+        <td><%= ink_exchange.user_id %></td>
+        <td><%= ink_exchange.room %></td>
+        <td><%= ink_exchange.printer %></td>
+        <td><%= ink_exchange.exchange_datetime %></td>
+        <td><%= ink_exchange.quantity %></td>
+        <td><%= ink_exchange.emptying %></td>
+        <td><%= link_to 'Show', ink_exchange %></td>
+        <td><%= link_to 'Edit', edit_ink_exchange_path(ink_exchange) %></td>
+        <td><%= link_to 'Destroy', ink_exchange, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ink Exchange', new_ink_exchange_path %>

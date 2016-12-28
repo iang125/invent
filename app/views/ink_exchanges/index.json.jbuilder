@@ -1,0 +1,1 @@
+json.array! @ink_exchanges, partial: 'ink_exchanges/ink_exchange', as: :ink_exchange

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ink_exchanges
+  resources :inks
   resources :transactions
   resources :equipment
   devise_for :users

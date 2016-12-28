@@ -1,0 +1,1 @@
+json.partial! "ink_exchanges/ink_exchange", ink_exchange: @ink_exchange
