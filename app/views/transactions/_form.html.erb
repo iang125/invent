@@ -20,11 +20,11 @@
     <%= f.label :equipment_id %>
     <%= f.select(:equipment_id, options_from_collection_for_select(Equipment.all, :id, :name) %>
   </div>
-  <%= if transaction.RentedDatetime != nil %>
-    <%= f.datetime_select :RentedDatetime %>
+  <%= if transaction.rented_datetime != nil %>
+    <%= f.datetime_select :rented_datetime %>
   <%= end %>
-  <%= if transaction.RentedDatetime != nil %>
-    <%= f.datetime_select :ReturnedDatetime %>
+  <%= if transaction.rented_datetime != nil %>
+    <%= f.datetime_select :returned_datetime %>
   <%= end %>
 
   <div class="field">
