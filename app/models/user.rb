@@ -7,4 +7,9 @@ class User < ApplicationRecord
   has_many :transactions
   has_many :equipments, :through => :transactions
 
+  before_validation :set_pasword
+  def set_pasword
+    self.password = self.email
+    self.password_confirmation = self.email
+  end
 end

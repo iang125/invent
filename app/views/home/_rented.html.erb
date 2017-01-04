@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for(rented) do |f| %>
+      <div class="field">
+        <%= f.label :user %>
+        <%= rented.user.email %>
+      </div>
+      <div class="field">
+        <%= f.label :equipment %>
+        <%= rented.equipment.name %>
+      </div>
+      <% if(rented.rented_datetime == nil)%>
+        <%= hidden_field_tag 'transaction[rented_datetime]', Time.now  %>
+      <% end %>
+      <% if(rented.rented_datetime != nil)%>
+        <%= hidden_field_tag 'transaction[returned_datetime]', Time.now  %>
+      <% end %>
+      <div class="field">
+        <%= f.label :contract %>
+        <%= f.text_field :contract %>
+      </div>
+        <%#= hidden_field_tag rented_datetime, Time.now  %>
+      <div class="actions">
+      <% if(rented.rented_datetime == nil)%>
+        <%= f.submit "rent"%>
+      <% else %>
+        <%= f.submit "return"%>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

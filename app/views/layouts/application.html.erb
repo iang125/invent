@@ -16,6 +16,7 @@
           <li role="presentation"><%= link_to "transactions", transactions_path %></li>
           <li role="presentation"><%= link_to "equipment", equipment_index_url %></li>
           <li role="presentation"><%= link_to "Home", root_path %></li>
+          <li role="presentation"><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
         </ul>
       </div>
       <div class="col-md-9">

@@ -1,12 +1,16 @@
 class Equipment < ApplicationRecord
   has_many :transactions
+  def avalible
+    avalible = []
+  end
   def rented?
-    transactions.each do |a|
-      if a.returned? == false
-        return true
-        break
-      end
-    end
-    return false
+     rent=[]
+     transactions.each { |tran| rent << tran if(tran.returned? == false) }
+     return rent.any?
+  end
+  def self.evalible
+    free =[]
+    all.each { |tran| free << tran if(tran.rented? == false) }
+    return free
   end
 end
