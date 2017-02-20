@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+/* Default Table */
+/*table {
+
+}*/
+
+th {
+    font-size: 1.3em;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+}
+
+tr:nth-child(even) {
+    background:lightgray;
+}
+
+th, td {
+    padding: .5em 1.5em;
+    text-align: center;
+}
