@@ -13,19 +13,20 @@
 
   <div class="field">
     <%= f.label :user_id %>
-    <%= f.select(:user_id, options_from_collection_for_select(User.all, :id, :email)) %>
+    <%= f.select(:user_id, options_from_collection_for_select(User.all, :id, :name)) %>
   </div>
 
   <div class="field">
     <%= f.label :equipment_id %>
     <%= f.select(:equipment_id, options_from_collection_for_select(Equipment.all, :id, :name)) %>
   </div>
-  <% if transaction.rented_datetime != nil %>
+
+  <%= if t.rented_datetime != nil %>
     <%= f.datetime_select :rented_datetime %>
-  <% end %>
-  <% if transaction.rented_datetime != nil %>
+  <%= end %>
+  <%= if t.rented_datetime != nil %>
     <%= f.datetime_select :returned_datetime %>
-  <% end %>
+  <%= end %>
 
   <div class="field">
     <%= f.label :contract %>
