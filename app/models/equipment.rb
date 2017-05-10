@@ -10,7 +10,7 @@ class Equipment < ApplicationRecord
   end
   def self.evalible
     free =[]
-    all.each { |tran| free << tran if(tran.rented? == false) }
+    all.each { |equip| free << equip if(equip.rented? == false) }
     return free
   end
 end
